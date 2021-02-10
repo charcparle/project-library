@@ -88,7 +88,15 @@ module.exports = function (app) {
     })
     
     .delete(function(req, res){
+      Book.deleteMany({},(err,result)=>{
+        if (err){
+          console.error(err);
+        } else {
+          console.log(`deleted count: ${result.deletedCount}`)
+        }
+      })
       //if successful response will be 'complete delete successful'
+      
     });
 
 
